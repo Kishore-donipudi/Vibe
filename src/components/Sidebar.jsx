@@ -87,7 +87,7 @@ function Sidebar({ activeView, collapsed, setCollapsed }) {
             <div className="flex items-center justify-between px-4 py-4 border-b border-white/5">
               <button onClick={() => { navigate("/"); setMobileOpen(false); }} className="flex items-center gap-2 cursor-pointer">
                 <div className="w-9 h-9 rounded-full overflow-hidden shadow-lg shadow-fuchsia-500/20">
-                  <img src={import.meta.env.BASE_URL + "favicon.png"} alt="Vibe" className="w-full h-full object-cover" />
+                  <img src={import.meta.env.BASE_URL + "favicon.png"} alt="Vibe" className="w-full h-full object-cover" onError={e => { e.target.style.display = 'none'; }} />
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">
                   Vibe
@@ -159,7 +159,7 @@ function Sidebar({ activeView, collapsed, setCollapsed }) {
         <div className="flex items-center justify-center px-3 py-5 border-b border-white/5">
           <button onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
             <div className="w-9 h-9 rounded-full overflow-hidden shadow-lg shadow-fuchsia-500/20 shrink-0">
-              <img src={import.meta.env.BASE_URL + "favicon.png"} alt="Vibe" className="w-full h-full object-cover" />
+              <img src={import.meta.env.BASE_URL + "favicon.png"} alt="Vibe" className="w-full h-full object-cover" onError={e => { e.target.style.display = 'none'; }} />
             </div>
             <span className={`text-xl font-bold bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap
               ${collapsed ? "hidden" : "hidden lg:inline"}`}>
