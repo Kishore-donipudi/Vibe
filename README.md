@@ -1,7 +1,9 @@
 # Songs Added 
 
+<br>
 
 # Charlie puth
+
 
 ## 1.Charlie Puth - Attention 
 ## 2.Charlie Puth - BOY [Official Audio].mp3"
@@ -22,8 +24,10 @@
 ## 17.Charlie Puth - _How Long_ [Official Video].mp3"
 ## 18.Does It Feel - Charlie Puth - Lyric video.mp3"
 ## 19.Charlie puth - See You Again
+<br>
 
 # Ariana Grande
+
 
 ## 1.Ariana Grande  - boyfriend"
 ## 2.Ariana Grande  - Side To Side (Official Video) ft. Nicki Minaj.mp3"
@@ -35,8 +39,10 @@
 ## 8.Ariana Grande - supernatural (Lyrics).mp3"
 ## 9.Ariana Grande - thank u, next (Official Lyric Video).mp3"
 ## 10.Ariana Grande - We Can’t Be Friends (Lyrics).mp3"
+<br>
 
 # The Weeknd
+<hr>
 
 ## 1.The Weeknd  - One Of The Girls (Official Video).mp3
 ## 2.The Weeknd - After Hours (Audio).mp3
@@ -49,8 +55,10 @@
 ## 9.The Weeknd - Take My Breath (Official Audio).mp3"
 ## 10.The Weeknd - The Hills (Lyrics).mp3"
 ## 11.The Weeknd -Often (Kygo Remix).mp3"
+<br>
 
 # Justin Bieber
+
 
 ## 1.Justin Bieber  - Where Are Ü Now(Official Video).mp3
 ## 2.Justin Bieber - 10,000 Hours (Lyrics).mp3
@@ -66,8 +74,11 @@
 ## 12.Justin Bieber - STAY (Official Video).mp3"
 ## 13.Justin Bieber - What Do You Mean_.mp3"
 ## 14.Justin Bieber – Beauty And A Beat (Lyrics).mp3"
+<br>
 
 # Maroon 5
+
+
 
 ## 1.Maroon 5 - Girls Like You (Lyrics) ft. Cardi B.mp3
 ## 2.Maroon 5 - Payphone
@@ -78,8 +89,10 @@
 ## 7.Maroon 5 - Beautiful Mistakes
 ## 8.Maroon 5 - Cold
 ## 9.Maroon 5 - What Lovers Do
+<br>
 
-## Taylor Swift
+# Taylor Swift
+
 
 ## 1.Taylor Swift - Style
 ## 2.Taylor Swift - Blank Space
@@ -94,3 +107,17 @@
 ## 11.Taylor Swift - willow
 ## 12.Taylor Swift - I Don't Wanna Live Forever
 ## 13.Taylor Swift - Slut!
+<br>
+
+# One Direction
+
+
+## 1.One Direction - Best Song Ever"
+## 2.One Direction - Night Changes"
+## 3.One Direction - Steal My Girl"
+## 4.One Direction - Perfect"
+## 5.One Direction - What Makes You Beautiful"
+## 6.One Direction - You & I"
+## 7.One Direction - Story of My Life"
+## 8.One Direction - Right Now"
+## 9.One Direction - Drag Me Down"
