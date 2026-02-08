@@ -1,9 +1,13 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { HiSearch, HiX, HiLogout } from "react-icons/hi";
 import { useAuth } from "../user_details/AuthContext";
+import { useToast } from "./Toast";
 
-function Navbar({ onSearch, searchQuery, onNavigate, currentView }) {
+function Navbar({ onSearch, searchQuery, currentView }) {
   const { user, logout } = useAuth();
+  const { addToast } = useToast();
+  const navigate = useNavigate();
   const [focused, setFocused] = useState(false);
   const inputRef = useRef(null);
   const isSearchPage = currentView === "search";
@@ -67,7 +71,7 @@ function Navbar({ onSearch, searchQuery, onNavigate, currentView }) {
           {user ? (
             <>
               <button
-                onClick={() => onNavigate("profile")}
+                onClick={() => navigate("/profile")}
                 className="flex items-center gap-2 sm:gap-2.5 px-2 sm:px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 transition-all group"
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden bg-gradient-to-br from-fuchsia-500 to-purple-600 flex items-center justify-center shrink-0">
@@ -84,7 +88,7 @@ function Navbar({ onSearch, searchQuery, onNavigate, currentView }) {
                 </span>
               </button>
               <button
-                onClick={() => { logout(); onNavigate("home"); }}
+                onClick={() => { logout(); addToast("You have been logged out.", { type: "logout" }); navigate("/"); }}
                 className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all hidden sm:block"
                 title="Logout"
               >
@@ -93,7 +97,7 @@ function Navbar({ onSearch, searchQuery, onNavigate, currentView }) {
             </>
           ) : (
             <button
-              onClick={() => onNavigate("login")}
+              onClick={() => navigate("/login")}
               className="px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all active:scale-95 flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { useMusic } from "../context/MusicContext";
 import ArtistCard from "../components/ArtistCard";
 import { HiUserGroup } from "react-icons/hi";
 
-function ArtistsPage({ onNavigate }) {
+function ArtistsPage() {
   const { getArtists } = useMusic();
   const artists = getArtists();
+  const navigate = useNavigate();
 
   return (
     <div className="space-y-6 pb-8">
@@ -17,7 +19,7 @@ function ArtistsPage({ onNavigate }) {
           <ArtistCard
             key={artist.id}
             artist={artist}
-            onClick={() => onNavigate("artist-" + artist.id)}
+            onClick={() => navigate(`/artist/${artist.id}`)}
           />
         ))}
       </div>

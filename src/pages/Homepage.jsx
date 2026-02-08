@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useMusic } from "../context/MusicContext";
 import { useAuth } from "../user_details/AuthContext";
 import SongCard from "../components/SongCard";
@@ -5,7 +6,8 @@ import ArtistCard from "../components/ArtistCard";
 import { HiPlay, HiSparkles, HiFire, HiClock, HiChevronRight } from "react-icons/hi";
 import { BsSoundwave } from "react-icons/bs";
 
-function Homepage({ onNavigate }) {
+function Homepage() {
+  const navigate = useNavigate();
   const { songs, recentlyPlayed, getArtists, playSong, favorites } = useMusic();
   const { user } = useAuth();
   const artists = getArtists();
@@ -78,7 +80,7 @@ function Homepage({ onNavigate }) {
                 Shuffle Play
               </button>
               <button
-                onClick={() => onNavigate("songs")}
+                onClick={() => navigate("/songs")}
                 className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl bg-white/10 backdrop-blur-sm text-white font-semibold text-xs sm:text-sm hover:bg-white/20 transition-all active:scale-95 border border-white/20"
               >
                 Browse All
@@ -112,7 +114,7 @@ function Homepage({ onNavigate }) {
               <HiClock className="text-fuchsia-400 text-lg" />
               <h2 className="text-xl font-bold text-white">Recently Played</h2>
             </div>
-            <button onClick={() => onNavigate("recent")} className="text-sm text-gray-400 hover:text-fuchsia-400 flex items-center gap-1 transition-colors">
+            <button onClick={() => navigate("/recent")} className="text-sm text-gray-400 hover:text-fuchsia-400 flex items-center gap-1 transition-colors">
               See all <HiChevronRight className="text-sm" />
             </button>
           </div>
@@ -128,13 +130,13 @@ function Homepage({ onNavigate }) {
       <section>
         <div className="flex items-center justify-between mb-4 sm:mb-5">
           <h2 className="text-lg sm:text-xl font-bold text-white">Popular Artists</h2>
-          <button onClick={() => onNavigate("artists")} className="text-sm text-gray-400 hover:text-fuchsia-400 flex items-center gap-1 transition-colors">
+          <button onClick={() => navigate("/artists")} className="text-sm text-gray-400 hover:text-fuchsia-400 flex items-center gap-1 transition-colors">
             See all <HiChevronRight className="text-sm" />
           </button>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
           {artists.map(artist => (
-            <ArtistCard key={artist.id} artist={artist} onClick={() => onNavigate("artist-" + artist.id)} />
+            <ArtistCard key={artist.id} artist={artist} onClick={() => navigate(`/artist/${artist.id}`)} />
           ))}
         </div>
       </section>
@@ -146,7 +148,7 @@ function Homepage({ onNavigate }) {
             <HiFire className="text-orange-400 text-lg" />
             <h2 className="text-xl font-bold text-white">Trending Now</h2>
           </div>
-          <button onClick={() => onNavigate("songs")} className="text-sm text-gray-400 hover:text-fuchsia-400 flex items-center gap-1 transition-colors">
+          <button onClick={() => navigate("/songs")} className="text-sm text-gray-400 hover:text-fuchsia-400 flex items-center gap-1 transition-colors">
             See all <HiChevronRight className="text-sm" />
           </button>
         </div>

@@ -1,9 +1,13 @@
+import { useParams, useNavigate } from "react-router-dom";
 import { useMusic } from "../context/MusicContext";
 import SongCard from "../components/SongCard";
 import { HiPlay, HiArrowLeft } from "react-icons/hi";
 import { BsSoundwave } from "react-icons/bs";
 
-function ArtistDetailPage({ artistId, onNavigate }) {
+function ArtistDetailPage() {
+  const { id } = useParams();
+  const artistId = Number(id);
+  const navigate = useNavigate();
   const { getSongsByArtist, getArtists, playSong, setQueue, currentSong, isPlaying } = useMusic();
   const artists = getArtists();
   const artist = artists.find(a => a.id === artistId);
@@ -29,7 +33,7 @@ function ArtistDetailPage({ artistId, onNavigate }) {
     <div className="space-y-6 pb-8">
       {/* Back Button */}
       <button
-        onClick={() => onNavigate("artists")}
+        onClick={() => navigate("/artists")}
         className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
       >
         <HiArrowLeft /> Back to Artists

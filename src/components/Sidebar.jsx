@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMusic } from "../context/MusicContext";
 import {
   HiHome, HiSearch, HiHeart, HiClock, HiMusicNote,
@@ -6,10 +7,22 @@ import {
 } from "react-icons/hi";
 import { RiPlayListFill } from "react-icons/ri";
 
-function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
+// Map view ids to URL paths
+const viewToPath = {
+  home: "/",
+  search: "/search",
+  songs: "/songs",
+  artists: "/artists",
+  favorites: "/favorites",
+  recent: "/recent",
+  queue: "/queue",
+};
+
+function Sidebar({ activeView, collapsed, setCollapsed }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { favorites, recentlyPlayed, getArtists } = useMusic();
   const artists = getArtists();
+  const navigate = useNavigate();
 
   const navItems = [
     { id: "home", label: "Home", icon: HiHome },
@@ -30,7 +43,7 @@ function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
   ];
 
   function handleNav(id) {
-    onNavigate(id);
+    navigate(viewToPath[id] || `/${id}`);
     setMobileOpen(false);
   }
 
@@ -72,14 +85,14 @@ function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
           <div className="absolute inset-0 bg-black/60" onClick={() => setMobileOpen(false)} />
           <aside className="absolute left-0 top-0 h-full w-[280px] bg-[#0a0a0f] border-r border-white/5 flex flex-col animate-slide-in-left overflow-y-auto">
             <div className="flex items-center justify-between px-4 py-4 border-b border-white/5">
-              <div className="flex items-center gap-2">
+              <button onClick={() => { navigate("/"); setMobileOpen(false); }} className="flex items-center gap-2 cursor-pointer">
                 <div className="w-9 h-9 rounded-full overflow-hidden shadow-lg shadow-fuchsia-500/20">
                   <img src={import.meta.env.BASE_URL + "favicon.png"} alt="Vibe" className="w-full h-full object-cover" />
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">
                   Vibe
                 </span>
-              </div>
+              </button>
               <button onClick={() => setMobileOpen(false)} className="p-1.5 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white">
                 <HiX className="text-xl" />
               </button>
@@ -119,7 +132,7 @@ function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
                     {artists.map(artist => (
                       <button
                         key={artist.id}
-                        onClick={() => handleNav("artist-" + artist.id)}
+                        onClick={() => { navigate(`/artist/${artist.id}`); setMobileOpen(false); }}
                         className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all"
                       >
                         <img src={artist.image} alt={artist.name} className="w-7 h-7 rounded-full object-cover ring-1 ring-white/10"
@@ -144,7 +157,7 @@ function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
       >
         {/* Logo */}
         <div className="flex items-center justify-center px-3 py-5 border-b border-white/5">
-          <div className="flex items-center gap-2">
+          <button onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
             <div className="w-9 h-9 rounded-full overflow-hidden shadow-lg shadow-fuchsia-500/20 shrink-0">
               <img src={import.meta.env.BASE_URL + "favicon.png"} alt="Vibe" className="w-full h-full object-cover" />
             </div>
@@ -152,7 +165,7 @@ function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
               ${collapsed ? "hidden" : "hidden lg:inline"}`}>
               Vibe
             </span>
-          </div>
+          </button>
           <button
             onClick={() => setCollapsed(c => !c)}
             className={`p-1.5 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white transition-colors
@@ -174,7 +187,7 @@ function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
               return (
                 <button
                   key={item.id}
-                  onClick={() => onNavigate(item.id)}
+                  onClick={() => navigate(viewToPath[item.id] || `/${item.id}`)}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group relative
                     ${isActive
                       ? "bg-gradient-to-r from-fuchsia-500/20 to-purple-500/10 text-fuchsia-400 shadow-sm"
@@ -208,7 +221,7 @@ function Sidebar({ onNavigate, activeView, collapsed, setCollapsed }) {
                 {artists.map(artist => (
                   <button
                     key={artist.id}
-                    onClick={() => onNavigate("artist-" + artist.id)}
+                    onClick={() => navigate(`/artist/${artist.id}`)}
                     className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200 group"
                   >
                     <img

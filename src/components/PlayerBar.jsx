@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMusic } from "../context/MusicContext";
 import { useToast } from "./Toast";
 import {
@@ -209,7 +210,8 @@ function getLyricsForSong(title) {
   return null;
 }
 
-function PlayerBar({ onNavigate }) {
+function PlayerBar() {
+  const navigate = useNavigate();
   const {
     currentSong, isPlaying, togglePlay, playNext, playPrev,
     shuffle, setShuffle, repeat_mode, setRepeat,
@@ -320,9 +322,9 @@ function PlayerBar({ onNavigate }) {
   const fav = isFavorite(currentSong.song_id);
 
   const handleArtistClick = () => {
-    if (currentSong?.artist_id && onNavigate) {
+    if (currentSong?.artist_id) {
       setExpanded(false);
-      onNavigate(`artist-${currentSong.artist_id}`);
+      navigate(`/artist/${currentSong.artist_id}`);
     }
   };
 

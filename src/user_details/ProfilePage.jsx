@@ -1,11 +1,13 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { useToast } from "../components/Toast";
 import { HiPencil, HiCamera, HiTrash, HiLogout, HiCheck, HiX } from "react-icons/hi";
 
-function ProfilePage({ onNavigate }) {
+function ProfilePage() {
   const { user, updateProfile, deleteAccount, logout } = useAuth();
   const { addToast } = useToast();
+  const navigate = useNavigate();
   const fileRef = useRef(null);
 
   const [editing, setEditing] = useState(false);
@@ -101,7 +103,7 @@ function ProfilePage({ onNavigate }) {
     if (!window.confirm("Are you sure you want to delete your account? This cannot be undone.")) return;
     try {
       await deleteAccount();
-      onNavigate("home");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -111,7 +113,7 @@ function ProfilePage({ onNavigate }) {
     if (!window.confirm("Are you sure you want to logout?")) return;
     logout();
     addToast("You have been logged out.", { type: "logout" });
-    onNavigate("home");
+    navigate("/");
   }
 
   if (!user) {
@@ -120,7 +122,7 @@ function ProfilePage({ onNavigate }) {
         <div className="text-center">
           <p className="text-gray-400 mb-4">You need to sign in to view your profile</p>
           <button
-            onClick={() => onNavigate("login")}
+            onClick={() => navigate("/login")}
             className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all"
           >
             Sign In

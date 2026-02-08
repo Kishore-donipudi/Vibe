@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { useToast } from "../components/Toast";
 import { HiMail, HiUser, HiLockClosed, HiEye, HiEyeOff } from "react-icons/hi";
 
-function LoginPage({ onNavigate }) {
+function LoginPage() {
   const { login } = useAuth();
   const { addToast } = useToast();
+  const navigate = useNavigate();
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
@@ -23,7 +25,7 @@ function LoginPage({ onNavigate }) {
     try {
       const u = await login(identifier.trim(), password);
       addToast(`Welcome back, ${u.username}!`, { type: "login" });
-      onNavigate("home");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -108,7 +110,7 @@ function LoginPage({ onNavigate }) {
         <p className="text-center text-gray-500 text-sm mt-6">
           Don't have an account?{" "}
           <button
-            onClick={() => onNavigate("signup")}
+            onClick={() => navigate("/signup")}
             className="text-fuchsia-400 hover:text-fuchsia-300 font-medium transition-colors"
           >
             Sign Up
