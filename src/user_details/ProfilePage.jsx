@@ -1,9 +1,11 @@
 import { useState, useRef } from "react";
 import { useAuth } from "./AuthContext";
+import { useToast } from "../components/Toast";
 import { HiPencil, HiCamera, HiTrash, HiLogout, HiCheck, HiX } from "react-icons/hi";
 
 function ProfilePage({ onNavigate }) {
   const { user, updateProfile, deleteAccount, logout } = useAuth();
+  const { addToast } = useToast();
   const fileRef = useRef(null);
 
   const [editing, setEditing] = useState(false);
@@ -70,8 +72,7 @@ function ProfilePage({ onNavigate }) {
     setError("");
     setSuccess("");
     const updates = {};
-    if (form.username !== user.username) updates.username = form.username;
-    if (form.email !== user.email) updates.email = form.email;
+    // username and email are not editable
     if (form.age !== (user.age || "")) updates.age = form.age ? Number(form.age) : null;
     if (form.gender !== (user.gender || "")) updates.gender = form.gender || null;
     if (imgBase64) updates.profile_img = imgBase64;
@@ -85,6 +86,7 @@ function ProfilePage({ onNavigate }) {
     try {
       await updateProfile(updates);
       setSuccess("Profile updated!");
+      addToast("Profile changes saved successfully!", { type: "profile" });
       setEditing(false);
       setPreviewImg(null);
       setImgBase64(null);
@@ -106,7 +108,9 @@ function ProfilePage({ onNavigate }) {
   }
 
   function handleLogout() {
+    if (!window.confirm("Are you sure you want to logout?")) return;
     logout();
+    addToast("You have been logged out.", { type: "logout" });
     onNavigate("home");
   }
 
@@ -230,10 +234,9 @@ function ProfilePage({ onNavigate }) {
             <label className="text-sm text-gray-400 mb-1.5 block">Username</label>
             <input
               type="text"
-              value={editing ? form.username : user.username || ""}
-              onChange={(e) => handleChange("username", e.target.value)}
-              disabled={!editing}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-fuchsia-500/50 focus:ring-2 focus:ring-fuchsia-500/20 transition-all disabled:opacity-60 disabled:cursor-default"
+              value={user.username || ""}
+              disabled
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none disabled:opacity-60 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -241,10 +244,9 @@ function ProfilePage({ onNavigate }) {
             <label className="text-sm text-gray-400 mb-1.5 block">Email</label>
             <input
               type="email"
-              value={editing ? form.email : user.email || ""}
-              onChange={(e) => handleChange("email", e.target.value)}
-              disabled={!editing}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-fuchsia-500/50 focus:ring-2 focus:ring-fuchsia-500/20 transition-all disabled:opacity-60 disabled:cursor-default"
+              value={user.email || ""}
+              disabled
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none disabled:opacity-60 disabled:cursor-not-allowed"
             />
           </div>
 

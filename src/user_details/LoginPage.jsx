@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
 import { useToast } from "../components/Toast";
-import { HiMail, HiLockClosed, HiEye, HiEyeOff } from "react-icons/hi";
+import { HiMail, HiUser, HiLockClosed, HiEye, HiEyeOff } from "react-icons/hi";
 
 function LoginPage({ onNavigate }) {
   const { login } = useAuth();
   const { addToast } = useToast();
-  const [email, setEmail] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState("");
@@ -15,13 +15,13 @@ function LoginPage({ onNavigate }) {
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
-    if (!email.trim() || !password) {
+    if (!identifier.trim() || !password) {
       setError("Please fill in all fields");
       return;
     }
     setLoading(true);
     try {
-      const u = await login(email.trim(), password);
+      const u = await login(identifier.trim(), password);
       addToast(`Welcome back, ${u.username}!`, { type: "login" });
       onNavigate("home");
     } catch (err) {
@@ -54,14 +54,14 @@ function LoginPage({ onNavigate }) {
           )}
 
           <div>
-            <label className="text-sm text-gray-400 mb-1.5 block">Email</label>
+            <label className="text-sm text-gray-400 mb-1.5 block">Username or Email</label>
             <div className="relative">
-              <HiMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" />
+              <HiUser className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" />
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                type="text"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
+                placeholder="Enter your username or email"
                 className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white text-sm placeholder-gray-500 outline-none focus:border-fuchsia-500/50 focus:ring-2 focus:ring-fuchsia-500/20 transition-all"
               />
             </div>
