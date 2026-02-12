@@ -1,0 +1,54 @@
+<svg width="600" height="350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f43f5e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="350" fill="url(#bg2)" rx="10"/>
+  
+  <!-- Title -->
+  <text x="30" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#fff">
+    Artists
+  </text>
+  
+  <!-- Artist Cards Grid -->
+  <!-- Row 1 -->
+  <g>
+    <!-- Artist 1 -->
+    <rect x="30" y="70" width="160" height="200" fill="#1a1a2e" rx="12"/>
+    <circle cx="110" cy="130" r="45" fill="url(#pink)"/>
+    <text x="50" y="210" font-family="Arial" font-size="16" font-weight="bold" fill="#fff">Charlie Puth</text>
+    <text x="70" y="230" font-family="Arial" font-size="12" fill="#888">19 songs</text>
+    
+    <!-- Artist 2 -->
+    <rect x="220" y="70" width="160" height="200" fill="#1a1a2e" rx="12"/>
+    <circle cx="300" cy="130" r="45" fill="url(#purple)"/>
+    <text x="230" y="210" font-family="Arial" font-size="16" font-weight="bold" fill="#fff">The Weeknd</text>
+    <text x="260" y="230" font-family="Arial" font-size="12" fill="#888">11 songs</text>
+    
+    <!-- Artist 3 -->
+    <rect x="410" y="70" width="160" height="200" fill="#1a1a2e" rx="12"/>
+    <circle cx="490" cy="130" r="45" fill="url(#blue)"/>
+    <text x="420" y="210" font-family="Arial" font-size="16" font-weight="bold" fill="#fff">Ariana Grande</text>
+    <text x="460" y="230" font-family="Arial" font-size="12" fill="#888">10 songs</text>
+  </g>
+  
+  <!-- Musical notes decoration -->
+  <text x="570" y="30" font-size="24" fill="#a855f7" opacity="0.4">♪</text>
+  <text x="20" y="340" font-size="20" fill="#ec4899" opacity="0.4">♫</text>
+</svg>
