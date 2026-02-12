@@ -1,0 +1,62 @@
+<svg width="600" height="380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="380" fill="url(#bg3)" rx="10"/>
+  
+  <!-- Search bar -->
+  <rect x="30" y="30" width="540" height="50" fill="#1a1a2e" rx="25"/>
+  <circle cx="60" cy="55" r="12" fill="#444"/>
+  <text x="85" y="62" font-family="Arial" font-size="16" fill="#666">Search songs, artists...</text>
+  
+  <!-- Title with heart icon -->
+  <text x="30" y="120" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#fff">
+    Favorite Songs
+  </text>
+  <text x="220" y="120" font-size="28" fill="#ec4899">❤</text>
+  
+  <!-- Song Grid -->
+  <g>
+    <!-- Song card 1 -->
+    <rect x="30" y="150" width="260" height="90" fill="#1a1a2e" rx="10"/>
+    <rect x="45" y="165" width="60" height="60" fill="url(#gradient)" rx="8" opacity="0.4"/>
+    <text x="120" y="185" font-family="Arial" font-size="15" font-weight="bold" fill="#fff">Blinding Lights</text>
+    <text x="120" y="205" font-family="Arial" font-size="12" fill="#888">The Weeknd</text>
+    <text x="120" y="220" font-family="Arial" font-size="11" fill="#666">3:20</text>
+    <text x="265" y="195" font-size="20" fill="#ec4899">❤</text>
+    
+    <!-- Song card 2 -->
+    <rect x="310" y="150" width="260" height="90" fill="#1a1a2e" rx="10"/>
+    <rect x="325" y="165" width="60" height="60" fill="#a855f7" rx="8" opacity="0.4"/>
+    <text x="400" y="185" font-family="Arial" font-size="15" font-weight="bold" fill="#fff">Attention</text>
+    <text x="400" y="205" font-family="Arial" font-size="12" fill="#888">Charlie Puth</text>
+    <text x="400" y="220" font-family="Arial" font-size="11" fill="#666">3:31</text>
+    <text x="545" y="195" font-size="20" fill="#ec4899">❤</text>
+    
+    <!-- Song card 3 -->
+    <rect x="30" y="260" width="260" height="90" fill="#1a1a2e" rx="10"/>
+    <rect x="45" y="275" width="60" height="60" fill="#f59e0b" rx="8" opacity="0.4"/>
+    <text x="120" y="295" font-family="Arial" font-size="15" font-weight="bold" fill="#fff">Peaches</text>
+    <text x="120" y="315" font-family="Arial" font-size="12" fill="#888">Justin Bieber</text>
+    <text x="120" y="330" font-family="Arial" font-size="11" fill="#666">3:18</text>
+    <text x="265" y="305" font-size="20" fill="#ec4899">❤</text>
+    
+    <!-- Song card 4 -->
+    <rect x="310" y="260" width="260" height="90" fill="#1a1a2e" rx="10"/>
+    <rect x="325" y="275" width="60" height="60" fill="#ec4899" rx="8" opacity="0.4"/>
+    <text x="400" y="295" font-family="Arial" font-size="15" font-weight="bold" fill="#fff">Lover</text>
+    <text x="400" y="315" font-family="Arial" font-size="12" fill="#888">Taylor Swift</text>
+    <text x="400" y="330" font-family="Arial" font-size="11" fill="#666">3:41</text>
+    <text x="545" y="305" font-size="20" fill="#ec4899">❤</text>
+  </g>
+</svg>

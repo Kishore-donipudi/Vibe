@@ -1,0 +1,62 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="600" height="400" fill="url(#bg)" rx="10"/>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="80" height="400" fill="#0f0f1a" rx="10"/>
+  <rect x="15" y="30" width="50" height="50" fill="url(#accent)" rx="5" opacity="0.3"/>
+  <rect x="15" y="100" width="50" height="8" fill="#444" rx="4"/>
+  <rect x="15" y="120" width="50" height="8" fill="#444" rx="4"/>
+  <rect x="15" y="140" width="50" height="8" fill="#444" rx="4"/>
+  <rect x="15" y="160" width="50" height="8" fill="#444" rx="4"/>
+  
+  <!-- Main content area -->
+  <!-- Header -->
+  <text x="110" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#fff">
+    Your Library
+  </text>
+  
+  <!-- Song cards -->
+  <g>
+    <!-- Card 1 -->
+    <rect x="110" y="70" width="460" height="80" fill="#1a1a2e" rx="8"/>
+    <circle cx="140" cy="110" r="25" fill="url(#accent)" opacity="0.6"/>
+    <text x="180" y="105" font-family="Arial" font-size="16" font-weight="bold" fill="#fff">Attention</text>
+    <text x="180" y="125" font-family="Arial" font-size="12" fill="#888">Charlie Puth</text>
+    <rect x="520" y="100" width="30" height="20" fill="url(#accent)" rx="5" opacity="0.3"/>
+    
+    <!-- Card 2 -->
+    <rect x="110" y="165" width="460" height="80" fill="#1a1a2e" rx="8"/>
+    <circle cx="140" cy="205" r="25" fill="#ec4899" opacity="0.6"/>
+    <text x="180" y="200" font-family="Arial" font-size="16" font-weight="bold" fill="#fff">Blinding Lights</text>
+    <text x="180" y="220" font-family="Arial" font-size="12" fill="#888">The Weeknd</text>
+    <rect x="520" y="195" width="30" height="20" fill="url(#accent)" rx="5" opacity="0.3"/>
+    
+    <!-- Card 3 -->
+    <rect x="110" y="260" width="460" height="80" fill="#1a1a2e" rx="8"/>
+    <circle cx="140" cy="300" r="25" fill="#f59e0b" opacity="0.6"/>
+    <text x="180" y="295" font-family="Arial" font-size="16" font-weight="bold" fill="#fff">Peaches</text>
+    <text x="180" y="315" font-family="Arial" font-size="12" fill="#888">Justin Bieber</text>
+    <rect x="520" y="290" width="30" height="20" fill="url(#accent)" rx="5" opacity="0.3"/>
+  </g>
+  
+  <!-- Player bar at bottom -->
+  <rect x="0" y="360" width="600" height="40" fill="#0f0f1a"/>
+  <circle cx="30" cy="380" r="15" fill="url(#accent)" opacity="0.5"/>
+  <rect x="60" y="375" width="200" height="3" fill="#333" rx="2"/>
+  <rect x="60" y="375" width="80" height="3" fill="url(#accent)" rx="2"/>
+  <circle cx="490" cy="380" r="12" fill="#444"/>
+  <circle cx="520" cy="380" r="12" fill="url(#accent)"/>
+  <circle cx="550" cy="380" r="12" fill="#444"/>
+</svg>
